@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ButtonAppBar from './components/Navbar';
+import Cupboard from './components/Cupboard';
+import Gauge from 'react-svg-gauge';
+
+
+
 
 class App extends Component {
 state = {
@@ -27,10 +32,11 @@ state = {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+
+       <ButtonAppBar />
+       <Cupboard />
+      
+       <Gauge value={this.state.value} width={400} height={320} label={this.state.data} />
         // Render the newly fetched data inside of this.state.data 
         <p className="App-intro">{this.state.data}</p>
       </div>
