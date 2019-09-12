@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import ButtonAppBar from './components/Navbar';
 import Cupboard from './components/Cupboard';
-import Gauge from 'react-svg-gauge';
+import Dashboard from './components/Dashboard';
 
 
 
 
 class App extends Component {
 state = {
-    data: null
+    data: [60, 80, 1],
+
   };
 
   componentDidMount() {
@@ -33,10 +33,17 @@ state = {
     return (
       <div className="App">
 
-       <ButtonAppBar />
-       <Cupboard />
+       <Dashboard />
+       {/* right now fake  data USING STATE data will come from backend */}
+       {/* map that renders all ur cupboards */}
+      {/* <Cupboard data={this.state.data} /> */}
+      {/* wrap in container to apply styles liek a grid */}
+      {this.state.data.map(c => {
       
-       <Gauge value={this.state.value} width={400} height={320} label={this.state.data} />
+        return <Cupboard data={c} />
+      
+      })}
+
         // Render the newly fetched data inside of this.state.data 
         <p className="App-intro">{this.state.data}</p>
       </div>

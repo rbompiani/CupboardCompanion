@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              Cupboard
+              Cupboard Companion
             </Typography>
             <Button color="inherit" >Login</Button>
           </Toolbar>

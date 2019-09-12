@@ -1,18 +1,21 @@
 import React from 'react';
 import Gauge from 'react-svg-gauge';
+import Button from '@material-ui/core/Button';
 
-function Cupboard(props) {
+function Cupboard({data}) {
     return (
+        <>
         <div className="Cupboard">
             <div>
-                <Gauge value={this.state.value} width={400} height={320} label={this.state.id} />
+                <Gauge value={data} width={400} height={320} label="Item" />
             </div>
             
-            <h3>{props.name}</h3>
-            <p>Phone: {props.phone}</p>
-            <p>Email: {props.email}</p>
+            <Button color="inherit" href="">Restock</Button>
+
             
         </div>
+        
+        </>
     )
 }
 
