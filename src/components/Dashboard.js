@@ -122,8 +122,12 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap>
             Cupboard Companion
           </Typography>
-          <Button color="inherit" >Login</Button>
+
+          
+
         </Toolbar>
+        {/* login button */}
+        <Button color="inherit" >Login</Button>
       </AppBar>
       <Drawer
         variant="permanent"

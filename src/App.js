@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Cupboard from './components/Cupboard';
 import Dashboard from './components/Dashboard';
-
+import Login from './components/Login';
 
 
 
@@ -50,6 +50,6 @@ state = {
 
     );
   }
-
+}
 
 export default App;
