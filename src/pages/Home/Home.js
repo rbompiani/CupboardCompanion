@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import './App.css';
-import Cupboard from './components/Cupboard';
-import Dashboard from './components/Dashboard';
+import './home.css';
 
-
-
-
-class App extends Component {
+class Home extends Component {
 state = {
-    data: [60, 80, 1],
-
+    data: null
   };
 
   componentDidMount() {
@@ -32,24 +26,13 @@ state = {
   render() {
     return (
       <div className="App">
-
-       <Dashboard />
-       {/* right now fake  data USING STATE data will come from backend */}
-       {/* map that renders all ur cupboards */}
-      {/* <Cupboard data={this.state.data} /> */}
-      {/* wrap in container to apply styles liek a grid */}
-      {this.state.data.map(c => {
-      
-        return <Cupboard data={c} />
-      
-      })}
-
-        // Render the newly fetched data inside of this.state.data 
-        <p className="App-intro">{this.state.data}</p>
+        <header className="App-header">
+          <h1 className="App-title">Welcome to the Cupboard Companion</h1>
+          <a className="login-btn" href="/auth/login">Log In</a>
+        </header>
       </div>
-
     );
   }
+}
 
-
-export default App;
+export default Home;
