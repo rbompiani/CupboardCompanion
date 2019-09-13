@@ -50,6 +50,6 @@ state = {
 
     );
   }
-
+}
 
 export default App;
