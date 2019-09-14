@@ -19,6 +19,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Button from '@material-ui/core/Button';
 import Register from './Register'
+import { Icon } from '@material-ui/core';
 
 const drawerWidth = 240;
 
@@ -122,6 +123,7 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap>
             Cupboard Companion
           </Typography>
+
           <Button color="inherit" >Login</Button>
         </Toolbar>
       </AppBar>
@@ -148,7 +150,7 @@ export default function MiniDrawer() {
         <List>
           {['Home', 'Cupboard', 'Register New Item'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <IconButton /> : <IconButton />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -158,16 +160,7 @@ export default function MiniDrawer() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
+          Welcome to Cupboard Companion. Register a new product by clicking register new item on the sidebar. Once your hardware is installed then fill up your container with product until full and set that reading as your full weight. Fill out the registration and let Cupboard Companion keep watch over your inventory. 
         </Typography>
         
 
