@@ -14,11 +14,11 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 // create a GET route
 app.get('/express_backend', (req, res) => {
-    res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-//   Sensor.find().then(found => {
-//     console.log(found);
+    //res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+     Sensor.find().then(found => {
+        //console.log(found);
 
-//     //res.send({express: found});
-//   });
+         res.send({express: found});
+    });
   
 });
