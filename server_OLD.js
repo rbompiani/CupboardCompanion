@@ -32,7 +32,7 @@ app.get('/sensors', (req, res) => {
     }
     // Otherwise, send the result of this query to the browser
     else {
-      res.json(found);
+      res.json(found[0]);
     }
   });
 });
