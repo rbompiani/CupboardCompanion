@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Grid from '@material-ui/core/Grid';
+import Dashboard from './components/Dashboard';
+import Cupboard from './components/Cupboard';
+
+
+
+
 
 class App extends Component {
 state = {
-    data: null
+    data: [60, 80, 1],
+
   };
 
   componentDidMount() {
@@ -15,7 +23,7 @@ state = {
   }
     // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
   callBackendAPI = async () => {
-    const response = await fetch('/express_backend');
+    const response = await fetch('/');
     const body = await response.json();
 
     if (response.status !== 200) {
@@ -27,15 +35,31 @@ state = {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
+
+       <Dashboard />
+        <Grid container spacing={3}>
+       {/* right now fake  data USING STATE data will come from backend */}
+       {/* map that renders all ur cupboards */}
+      {/* <Cupboard data={this.state.data} /> */}
+      {/* wrap in container to apply styles liek a grid */}
+      {this.state.data.map(c => {
+      
+        return (
+         
+            <Grid item xs={12} sm={6}>
+              <Cupboard data={c} />
+            </Grid>
+          
+
+        );
+      })}
+      </Grid>
         // Render the newly fetched data inside of this.state.data 
         <p className="App-intro">{this.state.data}</p>
       </div>
+
     );
   }
-}
+};
 
 export default App;
