@@ -20,5 +20,9 @@
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.7.1"
+    "@material-ui/core": "^4.4.2",
+    "@material-ui/icons": "^4.4.1",
+    "express": "^4.17.1",
+    "react-svg-gauge": "^1.0.10"
   }
 }
