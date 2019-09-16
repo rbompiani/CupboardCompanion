@@ -79,7 +79,7 @@ export default function TextFields() {
         margin="dense"
       />
 
-      {/* this is where they will set there starting weight */}
+      {/* this is where they will set the starting weight */}
       <TextField
         id="starting-weight"
         label="Starting Weight"
