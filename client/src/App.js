@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import { Link, Switch, BrowserRouter } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header'
 import Grid from '@material-ui/core/Grid';
 import Dashboard from './components/Dashboard';
 import Cupboard from './components/Cupboard';
 import NewItemButton from "./components/NewItem";
-
-
-
-
 
 
 class App extends Component {
@@ -41,9 +37,7 @@ class App extends Component {
     render() {
       return (
         <div className="App">
-          <header >
-            <img src={logo} className="App-logo" alt="logo" />
-          </header>
+          <Header />
           { this.state && this.state.data &&
             this.state.data.map(sensor => {
               return(<Cupboard data={Math.round(sensor.reading)}/>);
