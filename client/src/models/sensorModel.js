@@ -6,6 +6,10 @@ var Schema = mongoose.Schema;
 // Using the Schema constructor, create a new UserSchema object
 // This is similar to a Sequelize model
 var SensorSchema = new Schema({
+  product: {
+    type: String,
+    required: true
+  },
   reading: {
     type: Number,
     required: true,
