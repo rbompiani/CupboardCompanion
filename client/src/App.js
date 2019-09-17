@@ -40,7 +40,7 @@ class App extends Component {
           <Header />
           { this.state && this.state.data &&
             this.state.data.map(sensor => {
-              return(<Cupboard data={Math.round(sensor.reading)}/>);
+              return(<Cupboard data={Math.round(sensor.reading)} product={sensor.product}/>);
             }) 
           }
 {/* 
