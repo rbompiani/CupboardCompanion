@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Link, Switch, BrowserRouter } from 'react-router-dom';
 import './App.css';
+import Header from './components/Header'
 import Grid from '@material-ui/core/Grid';
 import Dashboard from './components/Dashboard';
 import Cupboard from './components/Cupboard';
-
-
-
+import NewItemButton from "./components/NewItem";
 
 
 class App extends Component {
@@ -38,11 +37,7 @@ class App extends Component {
     render() {
       return (
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          // Render the newly fetched data inside of this.state.data
+          <Header />
           { this.state && this.state.data &&
             this.state.data.map(sensor => {
               return(<Cupboard data={Math.round(sensor.reading)}/>);
