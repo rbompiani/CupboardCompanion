@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var Sensor = require("./sensorModel.js");
+var Sensor = require("../models/sensorModel.js");
 var five = require("johnny-five"),
   fsr, led;
 
@@ -17,14 +17,14 @@ mongoose.connect("mongodb+srv://Rebecca:cupboard@cluster0-vfyb8.mongodb.net/test
   led = new five.Led(9);
 
   // Scale the sensor's value to the LED's brightness range
-  fsr.scale([0, 255]).on("data", function() {
+  fsr.scale([-48, 560]).on("data", function() {
 
     // set the led's brightness based on force
     // applied to force sensitive resistor
     led.brightness(this.scaled);
 
     // Create a new mongo sensor entry using data
-    Sensor.create({reading:this.scaled})
+    Sensor.create({product:"Binder Clips", reading:this.scaled})
     .then(function(sensorReading) {
         // If saved successfully, send the the new User document to the client
         console.log(sensorReading);
