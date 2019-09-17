@@ -41,11 +41,9 @@ class App extends Component {
     render() {
       return (
         <div className="App">
-          <header className="App-header">
+          <header >
             <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">Welcome to React</h1>
           </header>
-           {/* Render the newly fetched data inside of this.state.data */}
           { this.state && this.state.data &&
             this.state.data.map(sensor => {
               return(<Cupboard data={Math.round(sensor.reading)}/>);
