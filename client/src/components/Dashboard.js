@@ -21,8 +21,11 @@ import Button from '@material-ui/core/Button';
 import Register from './Register'
 import { Icon } from '@material-ui/core';
 import ReactDOM from "react-dom";
-import Modal from 'react-modal';
-import NewItemModal from './NewItem';
+// import Modal from 'react-modal';
+// import NewItemModal from './NewItem';
+import Modal from "./Modal";
+import NewItemButton from "./NewItem";
+
 
 
 
@@ -176,38 +179,37 @@ export default function MiniDrawer() {
 
 //------------------------------------------------------
 
-class Dashboard extends Component {
-  state = { show: false };
+// class Dashboard extends Component {
+//   state = { show: false };
 
-  showModal = () => {
-    this.setState({ show: true });
-  };
+//   showModal = () => {
+//     this.setState({ show: true });
+//   };
 
-  hideModal = () => {
-    this.setState({ show: false });
-  };
+//   hideModal = () => {
+//     this.setState({ show: false });
+//   };
 
-  render() {
-    return (
-      <main>
-        <h1>React Modal</h1>
-        <Modal show={this.state.show} handleClose={this.hideModal}>
-          <p>Modal</p>
-          <p>Data</p>
-        </Modal>
-        <button type="button" onClick={this.showModal}>open</button>
-      </main>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <main>
+//         <h1>React Modal</h1>
+//         <Modal show={this.state.show} handleClose={this.hideModal}>
+//           <p>Modal</p>
+//           <p>Data</p>
+//         </Modal>
+//         <button type="button" onClick={this.showModal}>open</button>
+//       </main>
+//     );
+//   }
+// }
 
 
 
-const container = document.createElement("div");
-document.body.appendChild(container);
-ReactDOM.render(<Dashboard />, container);
-ReactDOM.render(<NewItemModal />, container);
+// const container = document.createElement("div");
+// document.body.appendChild(container);
+// ReactDOM.render(<Dashboard />, container);
+// ReactDOM.render(<NewItemModal />, container);
 
 
 //-----------------------------------------------------
-
