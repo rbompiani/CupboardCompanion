@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
 var mongoose = require("mongoose");
+const dbConnection = require('./client/src/config/userDataConnection');
 
 // Require all models
 var Sensor = require("./client/src/models/sensorModel");
