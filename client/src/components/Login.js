@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -38,71 +40,129 @@ const useStyles = makeStyles(theme => ({
     },
   }));
   
-  export default function SignIn() {
-    const classes = useStyles();
-  
-    return (
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign in
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
-              </Grid>
-            </Grid>
-          </form>
-        </div>
-        <Box mt={8}>
-        </Box>
-      </Container>
-    );
+  class SignIn extends Component {
+    constructor() {
+      super()
+      this.state = {
+        username: '',
+        password: '',
+        redirectTo: null
+      }
+      this.handleSubmit = this.handleSubmit.bind(this)
+      this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange(event) {
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+    }
+
+    handleSubmit(event) {
+      event.preventDefault()
+      console.log('handleSubmit');
+
+      axios
+        .post('/user/login', {
+          username: this.state.username,
+          password: this.state.password
+        })
+        .then(response => {
+          console.log('login response: ')
+          console.log(response)
+          if (response.status === 200) {
+            // update App.js state
+            // this.props.updateUser({
+            //     loggedIn: true,
+            //     username: response.data.username
+            // })
+            // update the state to redirect to home
+            this.setState({
+                redirectTo: '/dashboard'
+            })
+        }
+        }).catch(error => {
+          console.log('login error: ');
+          console.log(error);
+        })
+    }
+
+    render() {
+      if(this.state.redirectTo) {
+        return <Redirect to = {{ pathname: this.state.redirectTo }} />
+      } else {
+        // Not sure if this is the right place to put this.
+        const classes = useStyles();
+          return (
+            <Container component="main" maxWidth="xs">
+              <CssBaseline />
+              <div className={classes.paper}>
+                <Avatar className={classes.avatar}>
+                  <LockOutlinedIcon />
+                </Avatar>
+                <Typography component="h1" variant="h5">
+                  Sign in
+                </Typography>
+                <form className={classes.form} noValidate>
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    id="username"
+                    label="User Name"
+                    name="username"
+                    autoComplete="username"
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                  />
+                  <TextField
+                    variant="outlined"
+                    margin="normal"
+                    required
+                    fullWidth
+                    name="password"
+                    label="Password"
+                    type="password"
+                    id="password"
+                    autoComplete="current-password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  />
+                  <FormControlLabel
+                    control={<Checkbox value="remember" color="primary" />}
+                    label="Remember me"
+                  />
+                  <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                    onClick={this.handleSubmit}
+                  >
+                    Sign In
+                  </Button>
+                  <Grid container>
+                    <Grid item xs>
+                      <Link href="#" variant="body2">
+                        Forgot password?
+                      </Link>
+                    </Grid>
+                    <Grid item>
+                      <Link href="#" variant="body2">
+                        {"Don't have an account? Sign Up"}
+                      </Link>
+                    </Grid>
+                  </Grid>
+                </form>
+              </div>
+              <Box mt={8}>
+              </Box>
+            </Container>
+          );
+        }
+    }
   }
+
+  export default SignIn;
