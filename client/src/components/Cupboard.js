@@ -10,11 +10,7 @@ function Cupboard({data, product}) {
     return (
         <>
         <div className="Cupboard">
-            <div>
-                <NewItemButton>
-                    
-                </NewItemButton>
-            </div>
+           
             <div>
                 <Gauge value={data} width={400} height={320} label={product} />
             </div>
