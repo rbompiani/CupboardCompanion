@@ -1,7 +1,7 @@
 import React from 'react';
 import Gauge from 'react-svg-gauge';
 import Button from '@material-ui/core/Button';
-import NewItemButton from './NewItem';
+import NewItemButton from '../NewItem';
 
 function Cupboard({data, product}) {
     if(data<0) {data = 0}
@@ -12,12 +12,11 @@ function Cupboard({data, product}) {
         <div className="Cupboard">
            
             <div>
-                <Gauge value={data} width={400} height={320} label={product} />
+                <Gauge value={data} width={300} height={240} label={product} />
             </div>
             
             <Button color="inherit" href="">Restock</Button>
 
-            
         </div>
         
         </>
