@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Modal from "./Modal";
+import Modal from "./Modal.js";
 import Backdrop from "./Backdrop";
 
   class NewItemButton extends Component {
