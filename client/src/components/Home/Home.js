@@ -20,7 +20,7 @@ class Home extends Component {
         console.log(this.state);
       })
       .catch(err => console.log(err));
-    }, 5000)  
+    }, 1000)  
   }
   // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
   callBackendAPI = async () => {
