@@ -11,13 +11,15 @@ class Home extends Component {
 
   componentDidMount() {
     // Call our fetch function below once the component mounts
-    this.callBackendAPI()
+    setInterval(async () => {
+      console.log("requesting...");
+      this.callBackendAPI()
       .then(res => {
-        //console.log(res);
         this.setState({ data: res.express });
         console.log(this.state);
       })
       .catch(err => console.log(err));
+    }, 5000)  
   }
   // Fetches our GET route from the Express server. (Note the route we are fetching matches the GET route from server.js
   callBackendAPI = async () => {
