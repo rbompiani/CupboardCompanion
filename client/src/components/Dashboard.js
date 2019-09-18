@@ -22,7 +22,7 @@ import { Icon } from '@material-ui/core';
 import ReactDOM from "react-dom";
 // import Modal from 'react-modal';
 // import NewItemModal from './NewItem';
-import Modal from "./Modal";
+import Modal from './NewItem/Modal.js'
 import NewItemButton from "./NewItem/NewItem";
 
 
