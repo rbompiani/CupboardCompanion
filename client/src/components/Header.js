@@ -9,7 +9,6 @@ const Header = () => (
       <img src={logo} className="App-logo" alt="logo" />
     </header>
 
-    <NewItemButton />
   </div>
 );
 

@@ -18,13 +18,12 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import Button from '@material-ui/core/Button';
-import Register from './Register'
 import { Icon } from '@material-ui/core';
 import ReactDOM from "react-dom";
 // import Modal from 'react-modal';
 // import NewItemModal from './NewItem';
 import Modal from "./Modal";
-import NewItemButton from "./NewItem";
+import NewItemButton from "./NewItem/NewItem";
 
 
 
@@ -164,12 +163,14 @@ export default function MiniDrawer() {
           ))}
         </List>
         <Divider />
+        
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Typography paragraph>
           Welcome to Cupboard Companion. Register a new product by clicking register new item on the sidebar. Once your hardware is installed then fill up your container with product until full and set that reading as your full weight. Fill out the registration and let Cupboard Companion keep watch over your inventory. 
         </Typography>
+        <NewItemButton />
         
 
       </main>
