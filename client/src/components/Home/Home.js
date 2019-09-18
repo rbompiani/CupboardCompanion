@@ -1,6 +1,7 @@
 import React from "react";
 import {Component} from "react";
 import Cupboard from "../Cupboard/Cupboard"
+import Dashboard from "../Dashboard"
 import Wrapper from '../Wrapper/index';
 
 
@@ -33,6 +34,7 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
+        <Dashboard />
         <Wrapper>
           <div className="gauge-container">
             {this.state &&
