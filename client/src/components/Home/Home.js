@@ -1,8 +1,11 @@
 import React from "react";
 import {Component} from "react";
-import Cupboard from "../Cupboard/Cupboard"
-import Dashboard from "../Dashboard"
-import Wrapper from '../Wrapper/index';
+import Cupboard from "../Cupboard/Cupboard.js"
+import Navbar from "../Navbar/Navbar"
+import Typography from '@material-ui/core/Typography';
+import NewItemButton from "../NewItem/NewItem.js"
+import Wrapper from '../Wrapper/Wrapper.js';
+
 
 
 class Home extends Component {
@@ -13,11 +16,11 @@ class Home extends Component {
   componentDidMount() {
     // Call our fetch function below once the component mounts
     setInterval(async () => {
-      console.log("requesting...");
+      //console.log("requesting...");
       this.callBackendAPI()
       .then(res => {
         this.setState({ data: res.express });
-        console.log(this.state);
+        //console.log(this.state);
       })
       .catch(err => console.log(err));
     }, 5000)  
@@ -36,7 +39,11 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <Dashboard />
+        <Navbar />
+        <Typography paragraph>
+          Welcome to Cupboard Companion! Add a new product by clicking the Add New Sensor button below. Once your hardware is installed then fill up your container with product until full and set that reading as your full weight. Fill out the registration and let Cupboard Companion keep watch over your inventory. 
+        </Typography>
+        <NewItemButton />
         <Wrapper>
           <div className="gauge-container">
             {this.state &&
@@ -46,6 +53,7 @@ class Home extends Component {
                   <Cupboard
                     data={Math.round(sensor.reading)}
                     product={sensor.product}
+                    link={sensor.reorderLink}
                   />
                 );
               })}

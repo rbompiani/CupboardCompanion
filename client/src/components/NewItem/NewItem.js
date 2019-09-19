@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Modal from "./Modal.js";
 import Backdrop from "./Backdrop";
+import axios from "axios";
+
 
   class NewItemButton extends Component {
     state = {
@@ -12,6 +14,8 @@ import Backdrop from "./Backdrop";
       this.itemRef = React.createRef();
       this.weightRef = React.createRef();
       this.reminderRef = React.createRef();
+      this.linkRef = React.createRef();
+      this.emailRef = React.createRef();
     }
 
     startCreateNewItem = () => {
@@ -23,9 +27,13 @@ import Backdrop from "./Backdrop";
       const item = this.itemRef.current.value;
       const weight = +this.weightRef.current.value;
       const reminder = this.reminderRef.current.value;
+      const link = this.linkRef.current.value;
+      const email = this.emailRef.current.value;
 
-      const newSensor = {item, weight, reminder};
-      console.log(newSensor);
+      const newSensor = {item, weight, reminder, link, email};
+      //console.log(newSensor);
+      axios.post("/new_sensor", newSensor);
+
     };
 
     modalCancelHandler = () => {
@@ -51,12 +59,20 @@ import Backdrop from "./Backdrop";
                 <input type="text" id="item" ref={this.itemRef}></input>
               </div>
               <div className="form-control">
-                <label htmlFor="weight">Start Weight</label>
+                <label htmlFor="weight">Weight When Full</label>
                 <input type="number" id="weight" ref={this.weightRef}></input>
               </div>
               <div className="form-control">
-                <label htmlFor="reminder">Reminder</label>
-                <input type="checkbox" id="reminder" ref={this.reminderRef}></input>
+                <label htmlFor="reminder">Reorder Reminder at</label>
+                <input type="number" id="reminder" ref={this.reminderRef}></input>
+              </div>
+              <div className="form-control">
+                <label htmlFor="link">Link to Reorder</label>
+                <input type="url" id="link" ref={this.linkRef}></input>
+              </div>
+              <div className="form-control">
+                <label htmlFor="email">Email Address to Be Notified</label>
+                <input type="email" id="email" ref={this.emailRef}></input>
               </div>
             </form>
           </Modal>

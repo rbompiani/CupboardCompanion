@@ -18,6 +18,9 @@ var SensorSchema = new Schema({
     type: Date,
     default: Date.now,
     required: true
+  },
+  reorderLink: {
+    type: String
   }
 });
 
