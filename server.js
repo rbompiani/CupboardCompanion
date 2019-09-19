@@ -5,28 +5,29 @@ var mongoose = require("mongoose");
 var bodyParser = require('body-parser');
 const session = require('express-session');
 const dbConnection = require('./client/src/config/userDataConnection');
-// const MongoStore = require('connect-mongo')(session);
+const MongoStore = require('connect-mongo')(session);
 const passport = require('./client/src/passport');
+const user = require('./client/src/routes/user');
 
 // Require all models
 var Sensor = require("./client/src/models/sensorModel");
 
-// // Sessions
-// app.use(
-// 	session({
-// 		secret: 'projectsix', //pick a random string to make the hash that is generated secure
-// 		store: new MongoStore({ mongooseConnection: dbConnection }),
-// 		resave: false, //required
-// 		saveUninitialized: false //required
-// 	})
-// )
+// Sessions
+app.use(
+	session({
+		secret: 'projectsix', //pick a random string to make the hash that is generated secure
+		store: new MongoStore({ mongooseConnection: dbConnection }),
+		resave: false, //required
+		saveUninitialized: false //required
+	})
+)
 
 // Passport
 app.use(passport.initialize());
 app.use(passport.session()); // calls serializeUser and deserializeUser
 
-// // Routes
-// app.use('/user', user);
+// Set Up User Routes
+app.use('/user', user);
 
 // body parser things
 app.use(bodyParser.urlencoded({ extended: true }));
