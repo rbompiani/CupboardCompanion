@@ -46,6 +46,7 @@ class Home extends Component {
                   <Cupboard
                     data={Math.round(sensor.reading)}
                     product={sensor.product}
+                    link={sensor.reorderLink}
                   />
                 );
               })}

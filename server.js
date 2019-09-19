@@ -51,7 +51,7 @@ app.get('/express_backend', (req, res) => {
 
 app.post('/new_sensor', (req, res) => {
     // Create a new mongo sensor entry using data
-    Sensor.findOneAndUpdate({product:req.body.item}, {reading:100, link:req.body.link},{upsert:true})
+    Sensor.findOneAndUpdate({product:req.body.item}, {reading:100, reorderLink:req.body.link},{upsert:true})
     .then(function(sensorReading) {
         // If saved successfully, send the the new User document to the client
         console.log(sensorReading);
