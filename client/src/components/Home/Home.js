@@ -1,8 +1,9 @@
 import React from "react";
 import {Component} from "react";
-import Cupboard from "../Cupboard/Cupboard"
-import Dashboard from "../Dashboard"
-import Wrapper from '../Wrapper/index';
+import Cupboard from "../Cupboard/Cupboard.js"
+import Typography from '@material-ui/core/Typography';
+import NewItemButton from "../NewItem/NewItem.js"
+import Wrapper from '../Wrapper/Wrapper.js';
 
 
 class Home extends Component {
@@ -36,7 +37,10 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <Dashboard />
+        <Typography paragraph>
+          Welcome to Cupboard Companion. Register a new product by clicking register new item on the sidebar. Once your hardware is installed then fill up your container with product until full and set that reading as your full weight. Fill out the registration and let Cupboard Companion keep watch over your inventory. 
+        </Typography>
+        <NewItemButton />
         <Wrapper>
           <div className="gauge-container">
             {this.state &&
