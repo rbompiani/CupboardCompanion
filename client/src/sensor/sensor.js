@@ -24,7 +24,7 @@ mongoose.connect("mongodb+srv://Rebecca:cupboard@cluster0-vfyb8.mongodb.net/test
     led.brightness(this.scaled);
 
     // Create a new mongo sensor entry using data
-    Sensor.findOneAndUpdate({product:"Binder Clips"}, {reading:this.scaled},{upsert:true})
+    Sensor.findOneAndUpdate({product:"Toilet Paper"}, {reading:this.scaled},{upsert:true})
     .then(function(sensorReading) {
         // If saved successfully, send the the new User document to the client
         console.log(sensorReading);
