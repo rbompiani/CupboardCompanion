@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -61,7 +61,7 @@ const useStyles = makeStyles(theme => ({
       console.log(this.state.username);
       event.preventDefault();
 
-      // Make request to server to add a new sername/password
+      // Make request to server to add a new username/password
       axios.post('/user/', {
         username: this.state.username,
         password: this.state.password
@@ -153,3 +153,4 @@ const useStyles = makeStyles(theme => ({
   );
   } 
 }
+export default SignUp;
