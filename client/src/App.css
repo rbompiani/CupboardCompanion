@@ -11,7 +11,9 @@
 .gauge-container {
   display: grid;
   grid-template-columns:  1fr 1fr 1fr 1fr;
+  grid-gap: 6.6px 10px;
 }
+
 
 @keyframes App-logo-spin {
   from {

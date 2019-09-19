@@ -1,7 +1,7 @@
 import React from 'react';
 import Gauge from 'react-svg-gauge';
 import Button from '@material-ui/core/Button';
-import NewItemButton from '../NewItem/NewItem'
+import "./Cupboard.css"
 
 function Cupboard({data, product, link}) {
     if(data<0) {data = 0}
