@@ -71,7 +71,7 @@ const useStyles = makeStyles(theme => ({
         if(!response.data.errmsg) {
           console.log('successful signup');
           this.setState({ //redirect to login page
-                  redirectTo: '/login'
+                  redirectTo: '/home'
                 })
         } else {
           console.log('username already taken');
@@ -140,7 +140,7 @@ const useStyles = makeStyles(theme => ({
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>

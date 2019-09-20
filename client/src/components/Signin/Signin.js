@@ -78,7 +78,7 @@ const useStyles = makeStyles(theme => ({
             // })
             // update the state to redirect to home
             this.setState({
-                redirectTo: '/dashboard'
+                redirectTo: '/home'
             })
         }
         }).catch(error => {
