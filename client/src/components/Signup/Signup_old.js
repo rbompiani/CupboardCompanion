@@ -83,19 +83,19 @@ const useStyles = makeStyles(theme => ({
     }
   render() {
 
- const classes = useStyles();
-console.log(classes);
+  const classes = useStyles();
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
-      <div className={ classes.paper }>
-        <Avatar className={  classes.avatar }>
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={  classes.form } noValidate>
+        <form className={classes.form} noValidate>
           <Grid container spacing={2}>
             
             
@@ -133,14 +133,14 @@ console.log(classes);
             fullWidth
             variant="contained"
             color="primary"
-            className={ classes.submit  }
+            className={classes.submit}
             onCLick={this.handleSubmit}
           >
-            Sign Up
+            Cupboard Companion
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link component={SignUp} variant="body2">
+              <Link href="#" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
