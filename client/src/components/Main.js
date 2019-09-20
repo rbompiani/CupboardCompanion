@@ -9,8 +9,8 @@ import SignIn from "./Signin/Signin";
 const Main = () => (
   <main>
     <Switch>
-      <Redirect exact from="/" to="home" />
-      <Route path="/home" component={SignUp} />
+      <Redirect exact from="/" to="signup" />
+      <Route path="/signup" component={SignUp} />
       <Route path="/login" component={SignIn} />
       <Route path="/Cupboard" component={Home} />
 
