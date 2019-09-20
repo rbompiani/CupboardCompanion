@@ -43,8 +43,33 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
 export default function SignInSide() {
   const classes = useStyles();
+      axios
+        .post('/user/login', {
+          username: this.state.username,
+          password: this.state.password
+        })
+        .then(response => {
+          console.log('login response: ')
+          console.log(response)
+          if (response.status === 200) {
+            // update App.js state
+            // this.props.updateUser({
+            //     loggedIn: true,
+            //     username: response.data.username
+            // })
+            // update the state to redirect to home
+            this.setState({
+                redirectTo: '/home'
+            })
+        }
+        }).catch(error => {
+          console.log('login error: ');
+          console.log(error);
+        })
+    }
 
 
   return (
