@@ -53,7 +53,7 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Cupboard Companion
         </Typography>
         <form className={classes.form}
             noValidate
@@ -98,6 +98,7 @@ export default function SignUp() {
             value = {username}
             onChange= {(e)=> setUsername(e.target.value)}
           />
+
             </Grid>
             <Grid item xs={12}>
             <TextField

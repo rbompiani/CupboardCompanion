@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://source.unsplash.com/collection/8666376)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -46,6 +46,9 @@ const useStyles = makeStyles(theme => ({
 export default function SignInSide() {
   const classes = useStyles();
 
+  const [password, setPassword] = useState ('')
+  const [username, setUsername]= useState ('')
+
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -57,20 +60,33 @@ export default function SignInSide() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Cupboard Companion
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form}
+              noValidate
+              onSubmit={(e =>{
+                e.preventDefault()
+                console.log('it worked', username, password)
+              
+            })}
+              
+              >
+
+
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="usernane"
+              label="Username"
+              name="username"
+              autoComplete="username"
               autoFocus
+              value = {username}
+              onChange= {(e)=> setUsername(e.target.value)}
             />
+              
             <TextField
               variant="outlined"
               margin="normal"
@@ -81,6 +97,8 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={(e)=> setPassword(e.target.value)}
+              value ={password}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
