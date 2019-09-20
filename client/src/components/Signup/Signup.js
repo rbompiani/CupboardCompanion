@@ -44,28 +44,6 @@ export default function SignUp() {
   const [password, setPassword] = useState ('')
   const [username, setUsername]= useState ('')
 
-      // Make request to server to add a new username/password
-      axios.post('/user/', {
-        username: this.state.username,
-        password: this.state.password
-      })
-      .then(response => {
-        console.log(response);
-        if(!response.data.errmsg) {
-          console.log('successful signup');
-          this.setState({ //redirect to login page
-                  redirectTo: '/home'
-                })
-        } else {
-          console.log('username already taken');
-        }
-      }).catch(error => {
-        console.log('signup error: ');
-        console.log(error);
-      })
-    }
-  render() {
-
 
   return (
     <Container component="main" maxWidth="xs">
