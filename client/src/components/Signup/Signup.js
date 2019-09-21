@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -40,9 +41,9 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
 
-  const [password, setPassword] = useState ('')
+ 
   const [username, setUsername]= useState ('')
-
+  const [password, setPassword] = useState ('')
 
   return (
     <Container component="main" maxWidth="xs">
@@ -60,24 +61,24 @@ export default function SignUp() {
                 e.preventDefault()
                 console.log('it worked', username, password)
                 // axios post state to database 
-                // axios.post('/user/', {
-                // username: username,
-                //       password: password
-                //     })
-                //     .then(response => {
-                //       console.log(response);
-                //       if(!response.data.errmsg) {
-                //         console.log('successful signup');
-                //         this.setState({ //redirect to login page
-                //                 redirectTo: '/login'
-                //               })
-                //       } else {
-                //         console.log('username already taken');
-                //       }
-                //     }).catch(error => {
-                //       console.log('signup error: ');
-                //       console.log(error);
-                //     })
+                axios.post('/signup', {
+                      username: username,
+                      password: password
+                    })
+                    .then(response => {
+                      console.log(response);
+                      if(!response.data.errmsg) {
+                        console.log('successful signup');
+                        this.setState({ //redirect to login page
+                                redirectTo: '/login'
+                              })
+                      } else {
+                        console.log('username already taken');
+                      }
+                    }).catch(error => {
+                      console.log('signup error: ');
+                      console.log(error);
+                    })
             })}
 
          >

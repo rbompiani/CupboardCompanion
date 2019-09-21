@@ -27,7 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // calls serializeUser and deserializeUser
 
 // Set Up User Routes
-app.use('/user', user);
+// app.use('/user', user);
 
 // body parser things
 app.use(bodyParser.urlencoded({ extended: true }));
