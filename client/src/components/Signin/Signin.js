@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import history from '../../history'; 
+import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -66,7 +68,30 @@ export default function SignInSide() {
               noValidate
               onSubmit={(e =>{
                 e.preventDefault()
-                console.log('it worked', username, password)
+                console.log('it worked', username, password);
+
+                axios
+                .post('/login', {
+                  username: username,
+                  password: password
+                })
+                .then(response => {
+                    console.log('login response: ')
+                    console.log(response)
+                    if (response.status === 200) {
+                        // update App.js state
+                        // this.props.updateUser({
+                        //     loggedIn: true,
+                        //     username: response.data.username
+                        // })
+                        // update the state to redirect to home
+                        history.push('/cupboard');
+                    }
+                }).catch(error => {
+                    console.log('login error: ')
+                    console.log(error);
+                    
+                })
               
             })}
               
@@ -120,7 +145,7 @@ export default function SignInSide() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="home" variant="body2">
+                <Link href="signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

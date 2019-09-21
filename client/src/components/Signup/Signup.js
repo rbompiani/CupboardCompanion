@@ -67,10 +67,10 @@ export default function SignUp() {
                       password: password
                     })
                     .then(response => {
-                      console.log(response);
+                      console.log('response', response);
                       if(!response.data.errmsg) {
                         console.log('successful signup');
-                        history.push('/login');
+                        history.push('/cupboard');
                       } else {
                         console.log('username already taken');
                       }

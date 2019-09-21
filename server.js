@@ -27,9 +27,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session()); // calls serializeUser and deserializeUser
 
-// Set Up User Routes
-app.use('/user', user);
-
 app.use(morgan('dev'))
 
 // body parser things
@@ -52,12 +49,6 @@ app.get('/express_backend', (req, res) => {
     });
   
 });
-
-app.post('/signup', (req, res, next)=> {
-	console.log('server post username: ');
-	console.log(req.body.username)
-	res.end()
-})
 
 app.use( (req, res, next) => {
     console.log('req.session', req.session);
