@@ -8,7 +8,9 @@ const session = require('express-session');
 const dbConnection = require('./client/src/config/userDataConnection');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('./client/src/passport');
-const user = require('./client/src/routes/user');
+//const User = require('./client/src/routes/user');
+const User = require('./client/src/models/user');
+
 
 // Require all models
 var Sensor = require("./client/src/models/sensorModel");
@@ -55,6 +57,7 @@ app.use( (req, res, next) => {
     return next();
   });
 
+  /*---- ROUTE TO CREATE NEW SENSOR PRODUCT ----*/
 app.post('/new_sensor', (req, res) => {
     // Create a new mongo sensor entry using data
     Sensor.findOneAndUpdate({product:req.body.item}, {reading:100, reorderLink:req.body.link},{upsert:true})
@@ -66,4 +69,43 @@ app.post('/new_sensor', (req, res) => {
         // If an error occurs, send the error to the client
         console.log(err);
     });
+})
+
+// app.post('/signup', (req, res) => {
+//     // Create a new mongo sensor entry using data
+//     User.create({username:req.body.username, password:req.body.password})
+//     .then(function(newUser) {
+//         // If saved successfully, send the the new User document to the client
+//         console.log(newUser);
+//     })
+//     .catch(function(err) {
+//         // If an error occurs, send the error to the client
+//         console.log(err);
+//     });   
+// })
+
+app.post('/signup', (req, res) => {
+    console.log('user signup');
+
+    const { username, password } = req.body
+    // ADD VALIDATION
+    User.findOne({ username: username }, (err, user) => {
+        if (err) {
+            console.log('User.js post error: ', err)
+        } else if (user) {
+            res.json({
+                error: `Sorry, already a user with the username: ${username}`
+            })
+        }
+        else {
+            const newUser = new User({
+                username: username,
+                password: password
+            })
+            newUser.save((err, savedUser) => {
+                if (err) return res.json(err)
+                res.json(savedUser)
+            })
+        }
+    })
 })
