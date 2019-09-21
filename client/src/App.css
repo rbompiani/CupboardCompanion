@@ -23,3 +23,8 @@
     transform: rotate(360deg);
   }
 }
+
+.MuiAppBar-colorPrimary {
+  color: #fff;
+  background-color: #26547C;
+}
