@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import history from '../../history'; 
 import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -69,9 +70,7 @@ export default function SignUp() {
                       console.log(response);
                       if(!response.data.errmsg) {
                         console.log('successful signup');
-                        this.setState({ //redirect to login page
-                                redirectTo: '/login'
-                              })
+                        history.push('/login');
                       } else {
                         console.log('username already taken');
                       }
