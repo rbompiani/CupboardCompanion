@@ -26,3 +26,8 @@ code {
 .form-control {
   margin-bottom: 1rem;
 }
+
+.MuiAppBar-colorPrimary {
+  color: #fff;
+  background-color: #26547C;
+}

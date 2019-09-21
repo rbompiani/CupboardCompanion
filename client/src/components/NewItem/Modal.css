@@ -1,6 +1,6 @@
 .modal {
     width: 20%;
-    background: white;
+    background: #fffcf9;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     position: fixed;
     top: 20vh;
@@ -17,8 +17,8 @@
 
 .modal_header {
     padding: 1rem;
-    background: #3f51b5;
-    color: white;
+    background: #26547C;
+    color: #fffcf9;
 }
 
 .modal_header h1 {
@@ -37,13 +37,13 @@
 }
 
 .btn {
-background: #3f51b5;
+background: #26547C;
   font: inherit;
-  border: 1px solid #3f51b5;
+  border: 1px solid #26547C;
   border-radius: 3px;
   padding: 0.25rem 1rem;
   margin-right: 1rem;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.26);
-  color: white;
+  color: #fffcf9;
   cursor: pointer;
 }

@@ -12,11 +12,11 @@ function Cupboard({data, product, link}) {
     var color;
     function findColor(data) {
         if(data <= 25) {
-            color= "red";
+            color= "#ef476f";
         } else if (data >= 75) {
-            color="green";
+            color="#06d6a0";
         } else
-            color = "yellow";
+            color = "#ffd166";
     }
     findColor(data);
 

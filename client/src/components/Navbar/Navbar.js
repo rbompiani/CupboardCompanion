@@ -40,6 +40,7 @@ const useStyles = makeStyles(theme => ({
       width: 'auto',
     },
   },
+  
   searchIcon: {
     width: theme.spacing(7),
     height: '100%',
@@ -50,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
   },
   inputRoot: {
-    color: 'inherit',
+    color: '#26547C',
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 7),

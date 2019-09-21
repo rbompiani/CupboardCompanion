@@ -126,14 +126,14 @@ export default function SignInSide() {
               value ={password}
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
+              control={<Checkbox value="remember" color="#26547C" />}
               label="Remember me"
             />
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              color="primary"
+              color="#26547C"
               className={classes.submit}
             >
               Sign In
