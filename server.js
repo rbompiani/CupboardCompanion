@@ -3,6 +3,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 var mongoose = require("mongoose");
 var bodyParser = require('body-parser');
+const morgan = require('morgan');
 const session = require('express-session');
 const dbConnection = require('./client/src/config/userDataConnection');
 const MongoStore = require('connect-mongo')(session);
@@ -27,7 +28,9 @@ app.use(passport.initialize());
 app.use(passport.session()); // calls serializeUser and deserializeUser
 
 // Set Up User Routes
-// app.use('/user', user);
+app.use('/user', user);
+
+app.use(morgan('dev'))
 
 // body parser things
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,6 +52,17 @@ app.get('/express_backend', (req, res) => {
     });
   
 });
+
+app.post('/signup', (req, res, next)=> {
+	console.log('server post username: ');
+	console.log(req.body.username)
+	res.end()
+})
+
+app.use( (req, res, next) => {
+    console.log('req.session', req.session);
+    return next();
+  });
 
 app.post('/new_sensor', (req, res) => {
     // Create a new mongo sensor entry using data
