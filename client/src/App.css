@@ -24,7 +24,6 @@
   }
 }
 
-.MuiAppBar-colorPrimary {
-  color: #fff;
+.MuiAppBar-colorPrimary, .MuiPaper-root, .MuiPaper-elevation4, .MuiAppBar-root, .MuiAppBar-positionStatic, .MuiToolbar-root, .MuiToolbar-regular, .MuiToolbar-gutters{
   background-color: #26547C;
 }

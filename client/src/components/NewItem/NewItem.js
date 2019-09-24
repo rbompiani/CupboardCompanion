@@ -78,7 +78,7 @@ import axios from "axios";
           </Modal>
           )}
           <div className="events-control">
-            <p>Click here to add a new sensor!</p>
+            <h4>Click here to add a new sensor!</h4>
             <button className="btn" onClick={this.startCreateNewItem}>Add New Sensor</button>
           </div>
         </React.Fragment>
