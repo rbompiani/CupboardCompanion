@@ -42,7 +42,9 @@ class Home extends Component {
         <Navbar />
         <Typography>
           <h2>Welcome to Cupboard Companion!</h2>
+          <div className="container" id="bodycontainer">
           Add a new product by clicking the Add New Sensor button below. Once your hardware is installed then fill up your container with product until full and set that reading as your full weight. Fill out the registration and let Cupboard Companion keep watch over your inventory. 
+          </div>
         </Typography>
         <NewItemButton />
         <Wrapper>
