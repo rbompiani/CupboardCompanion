@@ -24,6 +24,8 @@ Real-time React dashboard for an inventory replentishment application. Built on 
 - Sequelize
 #### 4. MYSQL
 - Relational Database Tables
+#### 5. Arduino
+- Johnny-Five
 <p>&nbsp;</p>
 
 ## Development Roadmap
